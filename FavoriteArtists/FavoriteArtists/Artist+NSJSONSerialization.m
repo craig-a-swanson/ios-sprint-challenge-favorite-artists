@@ -22,7 +22,8 @@
     if (![biography isKindOfClass:[NSString class]]) return nil;
     
     NSNumber *yearFormedNumber = [artistResult objectForKey:@"intFormedYear"];
-    if (![yearFormedNumber isKindOfClass:[NSNumber class]]) return nil;
+    if ([yearFormedNumber isKindOfClass:[NSNull class]])
+        yearFormedNumber = nil;
     
     uint formed = yearFormedNumber.unsignedIntValue;
     
