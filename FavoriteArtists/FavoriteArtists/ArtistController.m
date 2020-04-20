@@ -66,7 +66,6 @@ static NSString *const ArtistFetcherBaseURLString = @"https://theaudiodb.com/api
     ];
     
     NSURL *url = urlComponents.URL;
-    NSLog(@"Building Artist URL is: %@", url);
     
     [[NSURLSession.sharedSession dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {

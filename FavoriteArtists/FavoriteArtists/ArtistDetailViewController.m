@@ -7,26 +7,35 @@
 //
 
 #import "ArtistDetailViewController.h"
+#import "Artist.h"
 
 @interface ArtistDetailViewController ()
+
+@property (strong, nonatomic) IBOutlet UILabel *artistNameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *artistFormedLabel;
+@property (strong, nonatomic) IBOutlet UITextView *artistBioTextView;
 
 @end
 
 @implementation ArtistDetailViewController
 
+@synthesize artist = _artist;
+
+-(void)setArtist:(Artist *)artist {
+    _artist = artist;
+    [self updateViews];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self updateViews];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)updateViews {
+    NSLog(@"Artist name: %@", _artist.strArtist);
+    self.artistNameLabel.text = _artist.strArtist;
+    self.artistFormedLabel.text = [NSString stringWithFormat:@"Formed in %d", _artist.intFormedYear];
+    self.artistBioTextView.text = _artist.strBiographyEN;
 }
-*/
 
 @end
