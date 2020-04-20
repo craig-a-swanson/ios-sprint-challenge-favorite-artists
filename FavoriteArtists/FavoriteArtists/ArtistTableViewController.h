@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#include "ArtistViewController.h"
+
+@class Artist;
+@class ArtistViewController;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ArtistTableViewController : UITableViewController
+@interface ArtistTableViewController : UITableViewController <ArtistTableViewControllerDelegate>
+
+@property (nonatomic, strong) NSArray<Artist *> *artists;
 
 @end
 

@@ -10,13 +10,22 @@
 #import <UIKit/UIKit.h>
 
 @class ArtistController;
+@class ArtistTableViewController;
+@class Artist;
+
+@protocol ArtistTableViewControllerDelegate;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ArtistViewController : UIViewController <UISearchBarDelegate>
 
+@property (nonatomic, strong) id<ArtistTableViewControllerDelegate> delegate;
 @property (strong, nonatomic) ArtistController *artistController;
 
 @end
 
 NS_ASSUME_NONNULL_END
+
+@protocol ArtistTableViewControllerDelegate <NSObject>
+- (void)getArtistsArray:(NSArray<Artist *> *_Nullable)artists;
+@end

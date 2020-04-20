@@ -15,6 +15,7 @@
 // MARK: - Properties
 @property (strong, nonatomic) NSString *artistName;
 @property (strong, nonatomic) Artist *currentArtist;
+@property (strong, nonatomic) NSArray<Artist *> *artists;
 
 // MARK: - IBOutlets
 @property (strong, nonatomic) IBOutlet UISearchBar *searchbar;
@@ -27,9 +28,11 @@
 @implementation ArtistViewController
 
 @synthesize artistController = _artistController;
+@synthesize delegate = _delegate;
 
 - (void)setArtistController:(ArtistController *)artistController {
     _artistController = artistController;
+    _artists = _artistController.artists;
 }
 
 - (void)viewDidLoad {
@@ -40,6 +43,8 @@
 
 - (IBAction)saveArtist:(UIBarButtonItem *)sender {
     [self.artistController saveArtistWithName:_currentArtist.strArtist founded:_currentArtist.intFormedYear biography:_currentArtist.strBiographyEN];
+    _artists = _artistController.artists;
+    [self.delegate getArtistsArray:_artists];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -55,5 +60,6 @@
         });
     }];
 }
+
 
 @end

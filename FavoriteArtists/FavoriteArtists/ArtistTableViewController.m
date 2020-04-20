@@ -23,10 +23,18 @@
 
 @implementation ArtistTableViewController
 
+- (instancetype)initWithArtists:(NSArray<Artist *> *)artists {
+    if (self = [super init]) {
+        _artists = artists;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.artistController = [[ArtistController alloc] init];
+    self.artists = _artistController.artists;
 }
 
 #pragma mark - Table view data source
@@ -90,9 +98,15 @@
         ArtistViewController *artistVC = segue.destinationViewController;
         
         artistVC.artistController = self.artistController;
+        artistVC.delegate = self;
     }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+}
+
+- (void)getArtistsArray:(NSArray<Artist *> *)artists {
+    self.artists = artists;
+    [self.tableView reloadData];
 }
 
 @end
