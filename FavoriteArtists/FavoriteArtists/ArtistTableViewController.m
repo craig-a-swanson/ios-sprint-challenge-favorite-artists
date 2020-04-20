@@ -33,7 +33,9 @@
     [super viewDidLoad];
     
     self.artistController = [[ArtistController alloc] init];
+    [self.artistController loadArtistsFromDirectory];
     self.artists = _artistController.artists;
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -58,7 +60,6 @@
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
     if ([segue.identifier  isEqual: @"AddArtistSegue"]) {

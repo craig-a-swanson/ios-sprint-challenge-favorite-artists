@@ -13,6 +13,7 @@
 @class ArtistTableViewController;
 @class Artist;
 
+// I used a delegate protocol to pass data from the search VC to the table VC.
 @protocol ArtistTableViewControllerDelegate;
 
 NS_ASSUME_NONNULL_BEGIN

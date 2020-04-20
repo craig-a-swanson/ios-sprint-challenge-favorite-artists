@@ -32,7 +32,6 @@
 }
 
 - (void)updateViews {
-    NSLog(@"Artist name: %@", _artist.strArtist);
     self.artistNameLabel.text = _artist.strArtist;
     self.artistFormedLabel.text = [NSString stringWithFormat:@"Formed in %d", _artist.intFormedYear];
     self.artistBioTextView.text = _artist.strBiographyEN;

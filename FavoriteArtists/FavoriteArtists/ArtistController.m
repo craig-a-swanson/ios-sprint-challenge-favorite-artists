@@ -14,26 +14,12 @@ static NSString *const ArtistFetcherBaseURLString = @"https://theaudiodb.com/api
 
 @interface ArtistController ()
 
-@property (nonatomic) NSMutableArray<Artist *> *internalArtists;
+@property (strong, nonatomic) NSMutableArray<Artist *> *internalArtists;
+@property (nonatomic) NSURL *artistURL;
 
 @end
 
 @implementation ArtistController
-
-
-// Snippet for writing to the documents directory
-//NSDictionary *dict = @{@"key2":@"Eezy",@"key1": @"Tutorials", @"key3":@"Website"};
-//NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask,YES);
-//NSString *documentsDirectory = [pathArray objectAtIndex:0];
-//NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"myDict.plist"];
-//NSURL *url = [NSURL fileURLWithPath:filePath];
-//BOOL status = [dict writeToURL:url atomically:YES];
-//NSLog(@"Write Status %d",status);
-
-// Snippet for reading from the documents directory
-//NSURL *url = [NSURL URLWithString:@"http://ios.eezytutorials.com/sample-files/sample-dictionary-plist.plist"];
-//NSDictionary *dict = [[NSDictionary alloc]initWithContentsOfURL:url];
-//NSLog(@"%@",url);
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -54,6 +40,16 @@ static NSString *const ArtistFetcherBaseURLString = @"https://theaudiodb.com/api
                                            formed:artistFounded];
     
     [self.internalArtists addObject:artist];
+    
+    NSURL *documentURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    _artistURL = [documentURL URLByAppendingPathComponent:@"Artists.plist"];
+    NSLog(@"Document URL: %@", _artistURL);
+    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+    for (Artist *currentArtist in _internalArtists) {
+        [tempArray addObject:[[Artist alloc] toDictionary:currentArtist]];
+    }
+    BOOL status = [tempArray writeToURL:_artistURL atomically:YES];
+    NSLog(@"Write status %d", status);
 }
 
 
@@ -86,23 +82,38 @@ static NSString *const ArtistFetcherBaseURLString = @"https://theaudiodb.com/api
             return;
         }
         
-        Artist *artistResult = [[Artist alloc] initWithDictionary:dictionary];
-        if (!artistResult) {
-            NSError *error = [NSError errorWithDomain:@"ArtistControllerDomain" code:-1 userInfo:nil];
+        NSArray *jsonArtistsArray = dictionary[@"artists"];
+        
+        if (jsonArtistsArray.count > 0) {
+            
+            // Access the first element of the array for the artist data
+            NSDictionary *artistDictionary = jsonArtistsArray[0];
+            Artist *artistResult = [[Artist alloc] initWithDictionary:artistDictionary];
+            if (!artistResult) {
+                NSError *error = [NSError errorWithDomain:@"ArtistControllerDomain" code:-1 userInfo:nil];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completionHandler(nil, error);
+                });
+                return;
+            }
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                completionHandler(nil, error);
+                completionHandler(artistResult, nil);
             });
-            return;
         }
-        
-//        [self.internalArtists addObject:artistResult];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completionHandler(artistResult, nil);
-        });
-        
     }] resume];
+}
+
+-(void)loadArtistsFromDirectory {
+    NSURL *documentURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    _artistURL = [documentURL URLByAppendingPathComponent:@"Artists.plist"];
+    
+    NSArray *artistsArray = [[NSArray alloc] initWithContentsOfURL:_artistURL];
+    for (NSDictionary *artistDict in artistsArray) {
+        Artist *currentArtist = [[Artist alloc] initWithDictionary:artistDict];
+        [_internalArtists addObject:currentArtist];
+    }
 }
 
 @end

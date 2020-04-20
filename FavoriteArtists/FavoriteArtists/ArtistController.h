@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)fetchArtist:(NSString *)artistName completionHandler:(ArtistControllerCompletionHandler)completionHandler;
 
+- (void)loadArtistsFromDirectory;
+
 @end
 
 NS_ASSUME_NONNULL_END
