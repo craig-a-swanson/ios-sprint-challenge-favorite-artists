@@ -7,6 +7,10 @@
 //
 
 #import "ArtistController.h"
+#import "Artist.h"
+#import "Artist+NSJSONSerialization.h"
+
+static NSString *const ArtistFetcherBaseURLString = @"theaudiodb.com/api/v1/json/1/search.php";
 
 @implementation ArtistController
 
@@ -24,5 +28,52 @@
 //NSURL *url = [NSURL URLWithString:@"http://ios.eezytutorials.com/sample-files/sample-dictionary-plist.plist"];
 //NSDictionary *dict = [[NSDictionary alloc]initWithContentsOfURL:url];
 //NSLog(@"%@",url);
+
+- (void)fetchArtist:(NSString *)artistName completionHandler:(ArtistControllerCompletionHandler)completionHandler {
+    
+    NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithString:ArtistFetcherBaseURLString];
+    
+    urlComponents.queryItems = @[
+        [NSURLQueryItem queryItemWithName:@"s" value:artistName]
+    ];
+    
+    NSURL *url = urlComponents.URL;
+    NSLog(@"Building Artist URL is: %@", url);
+    
+    [[NSURLSession.sharedSession dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Error retrieving artist: %@", error);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completionHandler(nil, error);
+            });
+            return;
+        }
+        
+        NSError *jsonError = nil;
+        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+        if(!dictionary) {
+            NSLog(@"Error decoding JSON: %@", jsonError);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completionHandler(nil, jsonError);
+            });
+            return;
+        }
+        
+        Artist *artistResult = [[Artist alloc] initWithDictionary:dictionary];
+        if (!artistResult) {
+            NSError *error = [NSError errorWithDomain:@"ArtistControllerDomain" code:-1 userInfo:nil];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completionHandler(nil, error);
+            });
+            return;
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completionHandler(artistResult, nil);
+        });
+        
+    }] resume];
+}
 
 @end

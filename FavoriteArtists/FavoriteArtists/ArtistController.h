@@ -8,9 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class Artist;
+
+typedef void(^ArtistControllerCompletionHandler)(Artist *_Nullable artist, NSError*_Nullable error);
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ArtistController : NSObject
+
+- (void)fetchArtist:(NSString *)artistName completionHandler:(ArtistControllerCompletionHandler)completionHandler;
 
 @end
 
