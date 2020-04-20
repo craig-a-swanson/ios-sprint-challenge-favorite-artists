@@ -29,8 +29,16 @@
     return [self initWithName:artist biography:biography formed:formed];
 }
 
-- (NSDictionary *)toDictionary {
+- (NSDictionary *)toDictionary:(Artist *)artist {
+    NSString *formed = [NSString stringWithFormat:@"%d", artist.intFormedYear];
     
+    NSDictionary *artistDictionary = @{
+        @"strArtist":artist.strArtist,
+        @"strBiographyEN":artist.strBiographyEN,
+        @"intFormedYear":formed
+    };
+    
+    return artistDictionary;
 }
 
 @end
