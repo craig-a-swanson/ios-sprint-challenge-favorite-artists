@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		44358AB1244D2A9C009B1BE5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 44358AB0244D2A9C009B1BE5 /* AppDelegate.m */; };
 		44358AB4244D2A9C009B1BE5 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 44358AB3244D2A9C009B1BE5 /* SceneDelegate.m */; };
-		44358AB7244D2A9C009B1BE5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44358AB6244D2A9C009B1BE5 /* ViewController.m */; };
 		44358ABA244D2A9C009B1BE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44358AB8244D2A9C009B1BE5 /* Main.storyboard */; };
 		44358ABC244D2A9E009B1BE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44358ABB244D2A9E009B1BE5 /* Assets.xcassets */; };
 		44358ABF244D2A9E009B1BE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44358ABD244D2A9E009B1BE5 /* LaunchScreen.storyboard */; };
@@ -17,6 +16,7 @@
 		44358ACC244D319A009B1BE5 /* ArtistController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44358ACB244D319A009B1BE5 /* ArtistController.m */; };
 		44358ACF244D331B009B1BE5 /* Artist.m in Sources */ = {isa = PBXBuildFile; fileRef = 44358ACE244D331B009B1BE5 /* Artist.m */; };
 		44358AD5244D353B009B1BE5 /* Artist+NSJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 44358AD4244D353B009B1BE5 /* Artist+NSJSONSerialization.m */; };
+		44358ADA244D42D7009B1BE5 /* ArtistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44358AD9244D42D7009B1BE5 /* ArtistViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,8 +25,6 @@
 		44358AB0244D2A9C009B1BE5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		44358AB2244D2A9C009B1BE5 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		44358AB3244D2A9C009B1BE5 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		44358AB5244D2A9C009B1BE5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		44358AB6244D2A9C009B1BE5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		44358AB9244D2A9C009B1BE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44358ABB244D2A9E009B1BE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44358ABE244D2A9E009B1BE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -39,6 +37,8 @@
 		44358ACE244D331B009B1BE5 /* Artist.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Artist.m; sourceTree = "<group>"; };
 		44358AD3244D353B009B1BE5 /* Artist+NSJSONSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Artist+NSJSONSerialization.h"; sourceTree = "<group>"; };
 		44358AD4244D353B009B1BE5 /* Artist+NSJSONSerialization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Artist+NSJSONSerialization.m"; sourceTree = "<group>"; };
+		44358AD8244D42D7009B1BE5 /* ArtistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArtistViewController.h; sourceTree = "<group>"; };
+		44358AD9244D42D7009B1BE5 /* ArtistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArtistViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,12 +71,9 @@
 		44358AAE244D2A9C009B1BE5 /* FavoriteArtists */ = {
 			isa = PBXGroup;
 			children = (
-				44358AB5244D2A9C009B1BE5 /* ViewController.h */,
-				44358AB6244D2A9C009B1BE5 /* ViewController.m */,
-				44358ACD244D331B009B1BE5 /* Artist.h */,
-				44358ACE244D331B009B1BE5 /* Artist.m */,
-				44358AD3244D353B009B1BE5 /* Artist+NSJSONSerialization.h */,
-				44358AD4244D353B009B1BE5 /* Artist+NSJSONSerialization.m */,
+				44358AD8244D42D7009B1BE5 /* ArtistViewController.h */,
+				44358AD9244D42D7009B1BE5 /* ArtistViewController.m */,
+				44358AD7244D3FB4009B1BE5 /* Model */,
 				44358ACA244D319A009B1BE5 /* ArtistController.h */,
 				44358ACB244D319A009B1BE5 /* ArtistController.m */,
 				44358AC8244D2AFB009B1BE5 /* LSIFileHelper.h */,
@@ -99,6 +96,17 @@
 				44358AB0244D2A9C009B1BE5 /* AppDelegate.m */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		44358AD7244D3FB4009B1BE5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				44358ACD244D331B009B1BE5 /* Artist.h */,
+				44358ACE244D331B009B1BE5 /* Artist.m */,
+				44358AD3244D353B009B1BE5 /* Artist+NSJSONSerialization.h */,
+				44358AD4244D353B009B1BE5 /* Artist+NSJSONSerialization.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,12 +180,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				44358ACC244D319A009B1BE5 /* ArtistController.m in Sources */,
-				44358AB7244D2A9C009B1BE5 /* ViewController.m in Sources */,
 				44358AB1244D2A9C009B1BE5 /* AppDelegate.m in Sources */,
 				44358AD5244D353B009B1BE5 /* Artist+NSJSONSerialization.m in Sources */,
 				44358AC2244D2A9E009B1BE5 /* main.m in Sources */,
 				44358ACF244D331B009B1BE5 /* Artist.m in Sources */,
 				44358AB4244D2A9C009B1BE5 /* SceneDelegate.m in Sources */,
+				44358ADA244D42D7009B1BE5 /* ArtistViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
