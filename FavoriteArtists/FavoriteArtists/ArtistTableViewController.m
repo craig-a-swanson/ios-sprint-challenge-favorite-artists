@@ -17,8 +17,6 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *artistNameLabel;
 
-//- (void)updateViews;
-
 @end
 
 @implementation ArtistTableViewController
@@ -52,6 +50,7 @@
     
     Artist *currentArtist = self.artistController.artists[indexPath.row];
     cell.textLabel.text = currentArtist.strArtist;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Formed in %d", currentArtist.intFormedYear];
     
     return cell;
 }

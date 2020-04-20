@@ -55,7 +55,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             self.currentArtist = artist;
             self.artistNameLabel.text = artist.strArtist;
-            self.artistFormedLabel.text = [NSString stringWithFormat:@"%d", artist.intFormedYear];
+            self.artistFormedLabel.text = [NSString stringWithFormat:@"Formed in %d", artist.intFormedYear];
             self.artistBioTextView.text = artist.strBiographyEN;
         });
     }];
