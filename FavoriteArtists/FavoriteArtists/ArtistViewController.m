@@ -18,6 +18,9 @@
 
 // MARK: - IBOutlets
 @property (strong, nonatomic) IBOutlet UISearchBar *searchbar;
+@property (strong, nonatomic) IBOutlet UILabel *artistNameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *artistFormedLabel;
+@property (strong, nonatomic) IBOutlet UITextView *artistBioTextView;
 
 @end
 
@@ -33,9 +36,13 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     _artistName = searchBar.text;
     [_artistController fetchArtist:_artistName completionHandler:^(Artist * _Nullable artist, NSError * _Nullable error) {
-        NSLog(@"Artist Name: %@; Artist Founded: %d", artist.strArtist, artist.intFormedYear);
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.artistNameLabel.text = artist.strArtist;
+            self.artistFormedLabel.text = [NSString stringWithFormat:@"%d", artist.intFormedYear];
+            self.artistBioTextView.text = artist.strBiographyEN;
+        });
     }];
-    // get the text from search bar and perform search
 }
 
 @end

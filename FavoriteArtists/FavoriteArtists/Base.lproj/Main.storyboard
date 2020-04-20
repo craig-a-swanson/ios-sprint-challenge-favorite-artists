@@ -22,22 +22,53 @@
                                     <outlet property="delegate" destination="RjD-ja-PgE" id="8es-56-obV"/>
                                 </connections>
                             </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4q9-e5-HGz">
+                                <rect key="frame" x="16" y="110" width="173" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Formed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyC-dQ-d48">
+                                <rect key="frame" x="16" y="161" width="73" height="27"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="re3-H9-3jP">
+                                <rect key="frame" x="16" y="198" width="382" height="648"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="4q9-e5-HGz" firstAttribute="top" secondItem="ykd-IJ-IHd" secondAttribute="bottom" constant="10" id="1XL-19-p84"/>
+                            <constraint firstItem="re3-H9-3jP" firstAttribute="leading" secondItem="iyz-WY-zqs" secondAttribute="leading" constant="16" id="ADv-OE-WZ3"/>
+                            <constraint firstItem="vyC-dQ-d48" firstAttribute="leading" secondItem="iyz-WY-zqs" secondAttribute="leading" constant="16" id="D1B-nN-vbq"/>
+                            <constraint firstItem="iyz-WY-zqs" firstAttribute="trailing" secondItem="re3-H9-3jP" secondAttribute="trailing" constant="16" id="FvH-qR-hcG"/>
                             <constraint firstItem="ykd-IJ-IHd" firstAttribute="top" secondItem="iyz-WY-zqs" secondAttribute="top" id="Jgt-FF-txn"/>
+                            <constraint firstItem="re3-H9-3jP" firstAttribute="top" secondItem="vyC-dQ-d48" secondAttribute="bottom" constant="10" id="Uc3-ef-Mpy"/>
+                            <constraint firstItem="4q9-e5-HGz" firstAttribute="leading" secondItem="iyz-WY-zqs" secondAttribute="leading" constant="16" id="ebe-Xf-Slc"/>
                             <constraint firstItem="ykd-IJ-IHd" firstAttribute="trailing" secondItem="iyz-WY-zqs" secondAttribute="trailing" id="fHt-y0-LQF"/>
                             <constraint firstItem="ykd-IJ-IHd" firstAttribute="leading" secondItem="iyz-WY-zqs" secondAttribute="leading" id="j2M-et-0bc"/>
+                            <constraint firstItem="vyC-dQ-d48" firstAttribute="top" secondItem="4q9-e5-HGz" secondAttribute="bottom" constant="10" id="zNH-4t-THO"/>
+                            <constraint firstItem="iyz-WY-zqs" firstAttribute="bottom" secondItem="re3-H9-3jP" secondAttribute="bottom" constant="16" id="zrd-sM-hnI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iyz-WY-zqs"/>
                     </view>
                     <connections>
+                        <outlet property="artistBioTextView" destination="re3-H9-3jP" id="eIZ-re-vmA"/>
+                        <outlet property="artistFormedLabel" destination="vyC-dQ-d48" id="d5N-lv-hcG"/>
+                        <outlet property="artistNameLabel" destination="4q9-e5-HGz" id="GcA-sh-8lS"/>
                         <outlet property="searchbar" destination="ykd-IJ-IHd" id="ino-u0-1kr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aTP-9U-syv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="58" y="67"/>
+            <point key="canvasLocation" x="-371" y="-54"/>
         </scene>
     </scenes>
 </document>
