@@ -12,6 +12,12 @@
 
 static NSString *const ArtistFetcherBaseURLString = @"https://theaudiodb.com/api/v1/json/1/search.php";
 
+@interface ArtistController ()
+
+@property (nonatomic) NSMutableArray<Artist *> *internalArtists;
+
+@end
+
 @implementation ArtistController
 
 
@@ -28,6 +34,28 @@ static NSString *const ArtistFetcherBaseURLString = @"https://theaudiodb.com/api
 //NSURL *url = [NSURL URLWithString:@"http://ios.eezytutorials.com/sample-files/sample-dictionary-plist.plist"];
 //NSDictionary *dict = [[NSDictionary alloc]initWithContentsOfURL:url];
 //NSLog(@"%@",url);
+
+- (instancetype)init {
+    if (self = [super init]) {
+        _internalArtists = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
+- (NSArray<Artist *> *)artists {
+    return [self.internalArtists copy];
+}
+
+- (void)saveArtistWithName:(NSString *)artistName
+                     founded:(uint)artistFounded
+                   biography:(NSString *)artistBio {
+    Artist *artist = [[Artist alloc] initWithName:artistName
+                                        biography:artistBio
+                                           formed:artistFounded];
+    
+    [self.internalArtists addObject:artist];
+}
+
 
 - (void)fetchArtist:(NSString *)artistName completionHandler:(ArtistControllerCompletionHandler)completionHandler {
     
@@ -68,6 +96,8 @@ static NSString *const ArtistFetcherBaseURLString = @"https://theaudiodb.com/api
             });
             return;
         }
+        
+//        [self.internalArtists addObject:artistResult];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             completionHandler(artistResult, nil);

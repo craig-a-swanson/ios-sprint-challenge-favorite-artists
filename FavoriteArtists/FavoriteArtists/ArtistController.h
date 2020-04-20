@@ -16,6 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ArtistController : NSObject
 
+@property (strong, nonatomic) NSArray<Artist *> *artists;
+
+- (void)saveArtistWithName:(NSString *)artistName
+                     founded:(uint)artistFounded
+                   biography:(NSString *)artistBio;
+
 - (void)fetchArtist:(NSString *)artistName completionHandler:(ArtistControllerCompletionHandler)completionHandler;
 
 @end

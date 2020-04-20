@@ -17,6 +17,8 @@
 		44358ACF244D331B009B1BE5 /* Artist.m in Sources */ = {isa = PBXBuildFile; fileRef = 44358ACE244D331B009B1BE5 /* Artist.m */; };
 		44358AD5244D353B009B1BE5 /* Artist+NSJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 44358AD4244D353B009B1BE5 /* Artist+NSJSONSerialization.m */; };
 		44358ADA244D42D7009B1BE5 /* ArtistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44358AD9244D42D7009B1BE5 /* ArtistViewController.m */; };
+		44358ADD244D60D1009B1BE5 /* ArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44358ADC244D60D1009B1BE5 /* ArtistTableViewController.m */; };
+		44358AE0244D60F2009B1BE5 /* ArtistDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44358ADF244D60F2009B1BE5 /* ArtistDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,10 @@
 		44358AD4244D353B009B1BE5 /* Artist+NSJSONSerialization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Artist+NSJSONSerialization.m"; sourceTree = "<group>"; };
 		44358AD8244D42D7009B1BE5 /* ArtistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArtistViewController.h; sourceTree = "<group>"; };
 		44358AD9244D42D7009B1BE5 /* ArtistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArtistViewController.m; sourceTree = "<group>"; };
+		44358ADB244D60D1009B1BE5 /* ArtistTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArtistTableViewController.h; sourceTree = "<group>"; };
+		44358ADC244D60D1009B1BE5 /* ArtistTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArtistTableViewController.m; sourceTree = "<group>"; };
+		44358ADE244D60F2009B1BE5 /* ArtistDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArtistDetailViewController.h; sourceTree = "<group>"; };
+		44358ADF244D60F2009B1BE5 /* ArtistDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArtistDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +77,7 @@
 		44358AAE244D2A9C009B1BE5 /* FavoriteArtists */ = {
 			isa = PBXGroup;
 			children = (
-				44358AD8244D42D7009B1BE5 /* ArtistViewController.h */,
-				44358AD9244D42D7009B1BE5 /* ArtistViewController.m */,
+				44358AE1244D6103009B1BE5 /* View Controllers */,
 				44358AD7244D3FB4009B1BE5 /* Model */,
 				44358ACA244D319A009B1BE5 /* ArtistController.h */,
 				44358ACB244D319A009B1BE5 /* ArtistController.m */,
@@ -107,6 +112,19 @@
 				44358AD4244D353B009B1BE5 /* Artist+NSJSONSerialization.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		44358AE1244D6103009B1BE5 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				44358AD8244D42D7009B1BE5 /* ArtistViewController.h */,
+				44358AD9244D42D7009B1BE5 /* ArtistViewController.m */,
+				44358ADB244D60D1009B1BE5 /* ArtistTableViewController.h */,
+				44358ADC244D60D1009B1BE5 /* ArtistTableViewController.m */,
+				44358ADE244D60F2009B1BE5 /* ArtistDetailViewController.h */,
+				44358ADF244D60F2009B1BE5 /* ArtistDetailViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +201,8 @@
 				44358AB1244D2A9C009B1BE5 /* AppDelegate.m in Sources */,
 				44358AD5244D353B009B1BE5 /* Artist+NSJSONSerialization.m in Sources */,
 				44358AC2244D2A9E009B1BE5 /* main.m in Sources */,
+				44358ADD244D60D1009B1BE5 /* ArtistTableViewController.m in Sources */,
+				44358AE0244D60F2009B1BE5 /* ArtistDetailViewController.m in Sources */,
 				44358ACF244D331B009B1BE5 /* Artist.m in Sources */,
 				44358AB4244D2A9C009B1BE5 /* SceneDelegate.m in Sources */,
 				44358ADA244D42D7009B1BE5 /* ArtistViewController.m in Sources */,

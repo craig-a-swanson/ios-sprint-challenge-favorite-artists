@@ -9,9 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@class ArtistController;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ArtistViewController : UIViewController <UISearchBarDelegate>
+
+@property (strong, nonatomic) ArtistController *artistController;
 
 @end
 
