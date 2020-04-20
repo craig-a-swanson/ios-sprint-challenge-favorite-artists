@@ -31,6 +31,10 @@
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    _artistName = searchBar.text;
+    [_artistController fetchArtist:_artistName completionHandler:^(Artist * _Nullable artist, NSError * _Nullable error) {
+        NSLog(@"Artist Name: %@; Artist Founded: %d", artist.strArtist, artist.intFormedYear);
+    }];
     // get the text from search bar and perform search
 }
 
